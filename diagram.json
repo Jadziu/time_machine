@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Paweł Jagowdzik",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": -205,
+      "left": 326.46,
+      "attrs": { "pixels": "16" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -204.1,
+      "left": -59.62,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 1.38,
+      "left": 408.28,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 70.54,
+      "left": 404.62,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 116.83,
+      "left": 405.38,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 170.51,
+      "left": 412.15,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-43.77", "v421.37", "h257.95" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-55.01", "v437.48", "h281.09" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "green", [ "h-37.16", "v128.79", "h164.03" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "green", [ "h-30.54", "v110.69", "h173.29" ] ],
+    [ "uno:10", "ring1:DIN", "orange", [ "v-39.26", "h209.43" ] ],
+    [ "ring1:VCC", "uno:5V", "red", [ "v310.81", "h-233.25", "v-1.98" ] ],
+    [ "ring1:GND", "uno:GND.2", "black", [ "v303.54", "h-60.95" ] ],
+    [ "btn1:1.l", "uno:3", "violet", [ "h-71.15", "v-37.37", "h-85.32" ] ],
+    [ "btn1:2.l", "uno:3.3V", "red", [ "h-121.41", "v179.09", "h-23.81" ] ],
+    [ "r1:2", "btn1:1.r", "black", [ "v0.8", "h31.51", "v-69.32" ] ],
+    [ "r1:1", "uno:GND.3", "black", [ "v-0.61", "h-100.68", "v145.72", "h-119.55" ] ],
+    [ "btn2:2.l", "uno:3.3V", "red", [ "h-88.8", "v84.02", "h-160.98" ] ],
+    [ "r2:1", "uno:GND.3", "black", [ "v0.57", "h-86.1", "v59.34", "h-141.41" ] ],
+    [ "btn2:1.l", "uno:4", "violet", [ "h-88.73", "v-143.44", "h-26.67" ] ],
+    [ "btn2:1.r", "r2:2", "black", [ "v-0.1", "h23.6", "v33.33" ] ]
+  ]
+}
